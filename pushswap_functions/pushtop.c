@@ -6,7 +6,7 @@
 /*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 10:22:56 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/10/22 12:30:04 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/10/25 15:38:55 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	pb(t_stack **pointer1, t_stack **pointer2)
 // 	node2a.next = NULL;
 // 	node2b.value = 5;
 // 	node2b.next = NULL;
-	
+
 // 	printf("test1\n");
 // 	printf("avant a\n");
 // 	while (temp_a)
