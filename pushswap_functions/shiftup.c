@@ -6,7 +6,7 @@
 /*   By: luis <luis@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 12:35:58 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/10/23 15:25:25 by luis             ###   ########.fr       */
+/*   Updated: 2026/10/26 11:19:20 by luis             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,24 +29,25 @@ void	shiftup(t_stack **pointer)
 	head_temp->next = NULL;
 }
 
-// void	ra(t_stack **pointer)
-// {
-// 	shiftup(pointer);
-// 	ft_printf("ra\n");
-// }
+void	ra(t_stack **pointer)
+{
+	shiftup(pointer);
+	ft_printf("ra\n");
+}
 
-// void	rb(t_stack **pointer)
-// {
-// 	shiftup(pointer);
-// 	ft_printf("rb\n");
-// }
+void	rb(t_stack **pointer)
+{
+	shiftup(pointer);
+	ft_printf("rb\n");
+}
 
-// void	rr(t_stack **pointer1, t_stack **pointer2)
-// {
-// 	shiftup(pointer1);
-// 	shiftup(pointer2);
-// 	ft_printf("rr\n");
-// }
+void	rr(t_stack **pointer1, t_stack **pointer2)
+{
+	shiftup(pointer1);
+	shiftup(pointer2);
+	ft_printf("rr\n");
+}
+
 int main()
 {
 	t_stack node1;

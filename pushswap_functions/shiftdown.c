@@ -6,7 +6,7 @@
 /*   By: luis <luis@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 12:36:02 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/10/23 16:54:45 by luis             ###   ########.fr       */
+/*   Updated: 2026/10/26 11:19:21 by luis             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	shiftdown(t_stack **pointer)
 	penultimate_node->next = NULL;
 }
 // A tester dans le cas d'une liste a 1 elem.
-t_list	*ft_lst_penultimate(t_list *lst)
+static t_list	*ft_lst_penultimate(t_list *lst)
 {
 	t_list	*temp;
 
