@@ -16,7 +16,7 @@
 
 #include "pushswap.h"
 
-t_stack	*ft_lstlast(t_stack *lst);
+t_stack	*ft_lstlast1(t_stack *lst);
 
 
 void	shiftup(t_stack **pointer)

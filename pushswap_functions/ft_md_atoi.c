@@ -6,11 +6,17 @@
 /*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 21:45:16 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/10/26 16:17:37 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/10/28 00:03:12 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
+
+static int	ft_fail(int *check)
+{
+	*check = 1;
+	return (0);
+}
 
 int	ft_md_atoi(const char *str, int *check)
 {
@@ -39,12 +45,6 @@ int	ft_md_atoi(const char *str, int *check)
 			return (ft_fail(check));
 	}
 	return (res);
-}
-
-int	ft_fail(int *check)
-{
-	*check = 1;
-	return (0);
 }
 
 // #include <limits.h>

@@ -6,7 +6,7 @@
 /*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/27 15:17:13 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/10/27 20:22:57 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/10/27 23:29:10 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	get_strat(int c, int *strat)
 	return (1);
 }
 
-static int	help_cmp_flag(char *argv, char *flag)
+int	help_cmp_flag(char *argv, char *flag)
 {
 	if (!argv || !flag)
 		return (-1);
@@ -62,7 +62,7 @@ static int	banana(char *s, int *strat)
 	return (0);
 }
 
-int	checkstrat(int argc, char **argv, int *check)
+int	ft_checkstrat(int argc, char **argv, int *check)
 {
 	int	i;
 	int	strat;

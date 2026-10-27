@@ -6,13 +6,13 @@
 /*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 14:41:53 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/10/26 15:42:58 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/10/27 22:27:52 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int	ft_checknumber(char *s)
+static int	ft_checknumber(char *s)
 {
 	int	i;
 
@@ -36,7 +36,7 @@ int	ft_checknumber(char *s)
 	return (0);
 }
 
-int	while_parsing(t_stack **head, char **temp)
+static int	while_parsing(t_stack **head, char **temp)
 {
 	int	i;
 	int	number;
