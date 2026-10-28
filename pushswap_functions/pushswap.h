@@ -6,7 +6,7 @@
 /*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 11:39:52 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/10/28 00:09:10 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/10/28 16:15:16 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 typedef struct stack
 {
 	int				value;
+	int				rank;
 	struct stack	*next;
 }	t_stack;
 
