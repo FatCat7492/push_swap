@@ -6,7 +6,7 @@
 /*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 15:17:12 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/10/30 16:33:52 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/10/30 18:11:57 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	rank_sort(t_stack **head)
 	return (0);
 }
 
-int	radix_pass_check(t_stack **head, int i)
+int	radix_skip_check(t_stack **head, int i)
 {
 	t_stack	*current;
 
