@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shiftdown.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luis <luis@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 12:36:02 by crgrandj          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/10/26 11:19:25 by luis             ###   ########.fr       */
-=======
-/*   Updated: 2026/10/26 11:19:21 by luis             ###   ########.fr       */
->>>>>>> d935f7725e7cac88caa2b3d46444d3b0c5b800ad
+/*   Updated: 2026/11/01 17:04:00 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +21,16 @@ void	shiftdown(t_stack **pointer)
 	
 	if (!pointer || !*pointer || !(*pointer)->next)
 		return ;
-	last_node = ft_lstlast(*pointer);
+	last_node = ft_lstlast1(*pointer);
 	penultimate_node = ft_lst_penultimate(*pointer);
 	last_node->next = *pointer;
 	*pointer = last_node;
 	penultimate_node->next = NULL;
 }
 // A tester dans le cas d'une liste a 1 elem.
-static t_list	*ft_lst_penultimate(t_list *lst)
+static t_stack	*ft_lst_penultimate(t_stack *lst)
 {
-	t_list	*temp;
+	t_stack	*temp;
 
 	if (!lst)
 		return (NULL);
