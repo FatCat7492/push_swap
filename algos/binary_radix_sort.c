@@ -6,7 +6,7 @@
 /*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 15:17:12 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/11/03 19:16:57 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/11/03 19:31:05 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static void	help_sort_radix(t_stack **head_a, t_stack *head_b,
 		if (((*head_a)->rank >> i & 1) == 0)
 			pb(head_a, &head_b, bench);
 		else
-			ra(head_a);
+			ra(head_a, bench);
 		j++;
 	}
 	while (head_b)
