@@ -1,0 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   helper_disorder.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/02 16:50:23 by crgrandj          #+#    #+#             */
+/*   Updated: 2026/11/02 18:34:17 by crgrandj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../pushswap_functions/pushswap.h"
+
+float	check_pairs_disorder(t_stack **head)
+{
+	t_stack	*current;
+	t_stack	*compare;
+	int		count_mis;
+	int		total_count;
+
+	count_mis = 0;
+	total_count = 0;
+	if (!head || !*head)
+		return (-1);
+	if (!(*head)->next)
+		return ((float)count_mis);
+	current = *head;
+	while (current->next)
+	{
+		compare = current->next;
+		while (compare)
+		{
+			if (current->value > compare->value)
+				count_mis += 1;
+			total_count += 1;
+			compare = compare->next;
+		}
+		current = current->next;
+	}
+	return (((float)count_mis / total_count));
+}

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   helpers.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/25 15:24:39 by crgrandj          #+#    #+#             */
+/*   Updated: 2026/11/03 16:51:19 by crgrandj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pushswap.h"
 
 void	ft_cleansplit(char **array)
@@ -35,7 +47,7 @@ int	wrappercleansplit(char **temp)
 	return (1);
 }
 
-int	while_add_back_dup(t_stack *current, t_stack *temp, int value)
+static int	while_add_back_dup(t_stack *current, t_stack *temp, int value)
 {
 	if (!current)
 	{

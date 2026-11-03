@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   shiftdown.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/22 12:36:02 by crgrandj          #+#    #+#             */
+/*   Updated: 2026/11/03 16:52:11 by crgrandj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pushswap.h"
 
 // A tester
@@ -9,16 +21,16 @@ void	shiftdown(t_stack **pointer)
 	
 	if (!pointer || !*pointer || !(*pointer)->next)
 		return ;
-	last_node = ft_lstlast(*pointer);
+	last_node = ft_lstlast1(*pointer);
 	penultimate_node = ft_lst_penultimate(*pointer);
 	last_node->next = *pointer;
 	*pointer = last_node;
 	penultimate_node->next = NULL;
 }
 // A tester dans le cas d'une liste a 1 elem.
-static t_list	*ft_lst_penultimate(t_list *lst)
+static t_stack	*ft_lst_penultimate(t_stack *lst)
 {
-	t_list	*temp;
+	t_stack	*temp;
 
 	if (!lst)
 		return (NULL);
