@@ -6,7 +6,7 @@
 /*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 16:21:40 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/10/27 22:30:01 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/11/03 19:08:14 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,25 @@ static void	swaptop(t_stack **pointer)
 	*pointer = temp;
 }
 
-void	sa(t_stack **pointer)
+void	sa(t_stack **pointer, t_bench *bench)
 {
 	swaptop(pointer);
+	bench->count_sa += 1;
 	ft_printf("sa\n");
 }
 
-void	sb(t_stack **pointer)
+void	sb(t_stack **pointer, t_bench *bench)
 {
 	swaptop(pointer);
+	bench->count_sb += 1;
 	ft_printf("sb\n");
 }
 
-void	ss(t_stack **pointer1, t_stack **pointer2)
+void	ss(t_stack **pointer1, t_stack **pointer2, t_bench *bench)
 {
 	swaptop(pointer1);
 	swaptop(pointer2);
+	bench->count_ss += 1;
 	ft_printf("ss\n");
 }
 

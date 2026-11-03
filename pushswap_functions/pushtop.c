@@ -6,7 +6,7 @@
 /*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 10:22:56 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/10/27 22:29:41 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/11/03 19:12:29 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,17 @@ static void	pushtop(t_stack **pointer1, t_stack **pointer2)
 	*pointer2 = temp;
 }
 
-void	pa(t_stack **pointer1, t_stack **pointer2)
+void	pa(t_stack **pointer1, t_stack **pointer2, t_bench *bench)
 {
 	pushtop(pointer2, pointer1);
+	bench->count_pa += 1;
 	ft_printf("pa\n");
 }
 
-void	pb(t_stack **pointer1, t_stack **pointer2)
+void	pb(t_stack **pointer1, t_stack **pointer2, t_bench *bench)
 {
 	pushtop(pointer1, pointer2);
+	bench->count_pb += 1;
 	ft_printf("pb\n");
 }
 
