@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   benchmark.c                                        :+:      :+:    :+:   */
+/*   benchmark_helpers.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/03 19:50:48 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/11/03 20:04:00 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/11/04 00:44:45 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,29 @@ int	benchmark_total_count(t_bench *bench)
 		+ bench->count_rr + bench->count_rra + bench->count_rrb
 		+ bench->count_rrr;
 	return (bench->total_count);
+}
+
+void	bench_print_integer(int value, const char *label)
+{
+	char	*integer;
+	char	*temp;
+
+	integer = ft_itoa(value);
+	if (!integer || !label)
+	{
+		free(integer);
+		return ;
+	}
+	temp = integer;
+	write(2, "[bench] ", 8);
+	while (*label)
+		write(2, label++, 1);
+	while (*temp)
+		write(2, temp++, 1);
+	free(integer);
+}
+
+void	bench_print_op(t_bench *bench)
+{
+	
 }

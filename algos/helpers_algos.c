@@ -6,11 +6,12 @@
 /*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 17:33:32 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/11/01 17:52:19 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/11/01 19:44:11 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap_functions/pushswap.h"
+
 int	check_sort(t_stack **head)
 {
 	t_stack	*temp;
