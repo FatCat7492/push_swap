@@ -6,7 +6,7 @@
 /*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/03 19:50:48 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/11/04 00:44:45 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/11/04 19:39:11 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	bench_print_integer(int value, const char *label)
 		return ;
 	}
 	temp = integer;
-	write(2, "[bench] ", 8);
 	while (*label)
 		write(2, label++, 1);
 	while (*temp)
@@ -60,7 +59,36 @@ void	bench_print_integer(int value, const char *label)
 	free(integer);
 }
 
+static void	bench_print_op2(t_bench *bench)
+{
+	benchmark_total_count(bench);
+	bench_print_integer(bench->total_count, "total_ops:  ");
+	write(2, "\n", 1);
+	write(2, "[bench] ", 8);
+	bench_print_integer(bench->count_sa, "sa:  ");
+	bench_print_integer(bench->count_sb, "  sb:  ");
+	bench_print_integer(bench->count_ss, "  ss:  ");
+	bench_print_integer(bench->count_pa, "  pa:  ");
+	bench_print_integer(bench->count_pb, "  pb:  ");
+	write(2, "\n", 1);
+	write(2, "[bench] ", 8);
+	bench_print_integer(bench->count_ra, "ra:  ");
+	bench_print_integer(bench->count_rb, "  rb:  ");
+	bench_print_integer(bench->count_rr, "  rr:  ");
+	bench_print_integer(bench->count_rra, "  rra:  ");
+	bench_print_integer(bench->count_rrb, "  rrb:  ");
+	bench_print_integer(bench->count_rrr, "  rrr:  ");
+	write(2, "\n", 1);
+}
+
 void	bench_print_op(t_bench *bench)
 {
-	
+	print_disorder_ini(bench);
+	write(2, "\n", 1);
+	write(2, "[bench] ", 8);
+	write(2, "strategy:  ", 11);
+	/* print adaptive -> simple ect.. */
+	write(2, "\n", 1);
+	write(2, "[bench] ", 8);
+	bench_print_op2(bench);
 }
