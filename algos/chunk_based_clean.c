@@ -65,64 +65,64 @@ int	fill_rank(t_stack *stack_a, int *array, int list_size)
 	return (0);
 }
 
-int main()
-{
-	t_stack *node1;
-	t_stack *node2;
-	t_stack *node3;
-	t_stack *node4;
-	t_stack	*node5;
+// int main()
+// {
+// 	t_stack *node1;
+// 	t_stack *node2;
+// 	t_stack *node3;
+// 	t_stack *node4;
+// 	t_stack	*node5;
 
-	node1 = malloc(sizeof(t_stack));
-	node2 = malloc(sizeof(t_stack));
-	node3 = malloc(sizeof(t_stack));
-	node4 = malloc(sizeof(t_stack));
-	node5 = malloc(sizeof(t_stack));
+// 	node1 = malloc(sizeof(t_stack));
+// 	node2 = malloc(sizeof(t_stack));
+// 	node3 = malloc(sizeof(t_stack));
+// 	node4 = malloc(sizeof(t_stack));
+// 	node5 = malloc(sizeof(t_stack));
 
-	node1->next = node2;
-	node2->next = node3;
-	node3->next = node4;
-	node4->next = node5;
-	node5->next = NULL;
+// 	node1->next = node2;
+// 	node2->next = node3;
+// 	node3->next = node4;
+// 	node4->next = node5;
+// 	node5->next = NULL;
 
-	node1->value = 4;
-	node2->value = 2;
-	node3->value = 3;
-	node4->value = 1;
-	node5->value = 6;
+// 	node1->value = 4;
+// 	node2->value = 2;
+// 	node3->value = 3;
+// 	node4->value = 1;
+// 	node5->value = 6;
 
-	chunk_based(&node1);
+// 	chunk_based(&node1);
 
-	printf("Node1 value: %d\n", node1->value);
-	printf("Node2 value: %d\n", node2->value);
-	printf("Node3 value: %d\n", node3->value);
-	printf("Node4 value: %d\n", node4->value);
-	printf("Node5 value: %d\n\n", node5->value);
+// 	printf("Node1 value: %d\n", node1->value);
+// 	printf("Node2 value: %d\n", node2->value);
+// 	printf("Node3 value: %d\n", node3->value);
+// 	printf("Node4 value: %d\n", node4->value);
+// 	printf("Node5 value: %d\n\n", node5->value);
 
-	printf("Node1 next: %p\n", node1->next);
-	printf("Node2 next: %p\n", node2->next);
-	printf("Node3 next: %p\n", node3->next);
-	printf("Node4 next: %p\n", node4->next);
-	printf("Node5 next: %p\n\n", node5->next);
+// 	printf("Node1 next: %p\n", node1->next);
+// 	printf("Node2 next: %p\n", node2->next);
+// 	printf("Node3 next: %p\n", node3->next);
+// 	printf("Node4 next: %p\n", node4->next);
+// 	printf("Node5 next: %p\n\n", node5->next);
 
-	printf("Node1 rank: %d\n", node1->rank);
-	printf("Node2 rank: %d\n", node2->rank);
-	printf("Node3 rank: %d\n", node3->rank);
-	printf("Node4 rank: %d\n", node4->rank);
-	printf("Node5 rank: %d\n", node5->rank);
+// 	printf("Node1 rank: %d\n", node1->rank);
+// 	printf("Node2 rank: %d\n", node2->rank);
+// 	printf("Node3 rank: %d\n", node3->rank);
+// 	printf("Node4 rank: %d\n", node4->rank);
+// 	printf("Node5 rank: %d\n", node5->rank);
 
-	return (0);
-}
+// 	return (0);
+// }
 
-unsigned int	lstsize(t_stack *lst)
-{
-	size_t	count;
+// unsigned int	lstsize(t_stack *lst)
+// {
+// 	size_t	count;
 
-	count = 0;
-	while (lst != NULL)
-	{
-		count++;
-		lst = lst->next;
-	}
-	return (count);
-}
+// 	count = 0;
+// 	while (lst != NULL)
+// 	{
+// 		count++;
+// 		lst = lst->next;
+// 	}
+// 	return (count);
+// }

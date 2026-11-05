@@ -43,7 +43,7 @@ static void	push_max(t_stack **stack_a, t_stack **stack_b)
 	pa(stack_a, stack_b);
 }
 
-int	chunking(t_stack **stack_a, int list_size)
+static int	chunking(t_stack **stack_a, int list_size)
 {
 	t_stack	*stack_b;
 

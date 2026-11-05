@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: luis <luis@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 11:39:52 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/11/01 17:48:30 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/11/03 18:01:14 by luis             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,14 @@ int			ft_parsing_ultimate(int argc, int *check_bench, char **argv,
 int			binary_radix_sort(t_stack **head_a);
 int			check_sort(t_stack **head);
 t_stack		*ft_lstlast1(t_stack *lst);
+
+void	selection_sort(t_stack **stack_a, t_stack **stack_b);
+int	chunk_based(t_stack **stack_a);
+void	adaptive(float disorder, t_stack **stack_a);
+
+
+
+// operations
 void		sa(t_stack **pointer);
 void		sb(t_stack **pointer);
 void		ss(t_stack **pointer1, t_stack **pointer2);
