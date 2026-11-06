@@ -15,14 +15,14 @@
 
 # include "../ft_printf/ft_printf.h"
 # include <stdio.h>
-
+/* Struct general */
 typedef struct stack
 {
 	int				value;
 	int				rank;
 	struct stack	*next;
 }	t_stack;
-
+/* Struct Bench */
 typedef struct bench
 {
 	int		count_sa;
