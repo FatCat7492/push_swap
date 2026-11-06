@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: luis <luis@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 11:39:52 by crgrandj          #+#    #+#             */
 /*   Updated: 2026/11/06 15:54:24 by crgrandj         ###   ########.fr       */
@@ -56,6 +56,9 @@ int			ft_parsing_ultimate(int argc, int *check_bench, char **argv,
 int			binary_radix_sort(t_stack **head_a, t_bench *bench);
 int			check_sort(t_stack **head);
 t_stack		*ft_lstlast1(t_stack *lst);
+void		selection_sort(t_stack **stack_a, t_stack **stack_b);
+int			chunk_based(t_stack **stack_a);
+void		adaptive(float disorder, t_stack **stack_a);
 /* Benchmark */
 void		bench_print_integer(int value, const char *label);
 int			benchmark_total_count(t_bench *bench);
