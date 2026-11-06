@@ -44,7 +44,7 @@ static t_stack	*ft_lst_penultimate(t_stack *lst)
 void	rra(t_stack **pointer, t_bench *bench)
 {
 	shiftdown(pointer);
-	bench->count_rra + 1;
+	bench->count_rra += 1;
 	ft_printf("rra\n");
 }
 
