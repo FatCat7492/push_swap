@@ -3,6 +3,18 @@
 
 unsigned int	lstsize(t_stack *lst);
 
+unsigned int	lstsize(t_stack *lst)
+{
+	size_t	count;
+
+	count = 0;
+	while (lst != NULL)
+	{
+		count++;
+		lst = lst->next;
+	}
+	return (count);
+}
 
 int	*fill_array(t_stack *stack_a, int list_size)
 {
@@ -112,17 +124,4 @@ int	fill_rank(t_stack *stack_a, int *array, int list_size)
 // 	printf("Node5 rank: %d\n", node5->rank);
 
 // 	return (0);
-// }
-
-// unsigned int	lstsize(t_stack *lst)
-// {
-// 	size_t	count;
-
-// 	count = 0;
-// 	while (lst != NULL)
-// 	{
-// 		count++;
-// 		lst = lst->next;
-// 	}
-// 	return (count);
 // }

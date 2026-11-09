@@ -54,17 +54,6 @@ int	chunking(t_stack **stack_a, int list_size)
 	return (0);
 }
 
-// int	chunking(t_stack **stack_a, int list_size)
-// {
-// 	t_stack	**stack_b;
-// 	int	chunks;
-
-// 	chunks = list_size / 10;
-
-
-
-// }
-
 static void	push_chunks(t_stack **stack_a, t_stack **stack_b,
 		int list_size)
 {
@@ -115,27 +104,4 @@ int	chunk_based(t_stack **stack_a)
 	return (chunking(stack_a, list_size));
 }
 
-
-// int	chunk_based(t_stack **stack_a)
-// {
-// 	int list_size;
-// 	int	*array;
-
-// 	if (!stack_a || !(*stack_a))
-// 		return (1);
-// 	list_size = lstsize(*stack_a);
-// 	array = fill_array(*stack_a, list_size);
-// 	if (array)
-// 		sort_array(array, list_size);
-// 	else
-// 		return (1);
-// 	if (fill_rank(*stack_a, array, list_size) == 1)
-// 		{
-// 			free(array);
-// 			return (1);
-// 		}
-	
-// 	free(array);
-// 	return (0);
-// }
 

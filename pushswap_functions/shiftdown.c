@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   shiftdown.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: luis <luis@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 12:36:02 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/11/03 16:52:11 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/11/05 15:50:33 by luis             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
 // A tester
+
+static t_stack	*ft_lst_penultimate(t_stack *lst);
 
 void	shiftdown(t_stack **pointer)
 {

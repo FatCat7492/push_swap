@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   helpers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: luis <luis@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 15:24:39 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/11/03 16:51:19 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/11/06 16:00:47 by luis             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	ft_cleansplit(char **array)
 	while (i > 0)
 		free(array[--i]);
 	free(array);
+	array = NULL;
 }
 
 void	ft_cleanstack(t_stack **head)

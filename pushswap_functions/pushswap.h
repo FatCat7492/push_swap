@@ -6,7 +6,7 @@
 /*   By: luis <luis@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 11:39:52 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/11/03 18:01:14 by luis             ###   ########.fr       */
+/*   Updated: 2026/11/05 15:19:45 by luis             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int			binary_radix_sort(t_stack **head_a);
 int			check_sort(t_stack **head);
 t_stack		*ft_lstlast1(t_stack *lst);
 
-void	selection_sort(t_stack **stack_a, t_stack **stack_b);
+void	selection_sort(t_stack **stack_a);
 int	chunk_based(t_stack **stack_a);
 void	adaptive(float disorder, t_stack **stack_a);
 
