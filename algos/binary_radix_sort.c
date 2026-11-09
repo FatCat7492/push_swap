@@ -6,7 +6,7 @@
 /*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 15:17:12 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/11/01 17:47:00 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/11/03 19:31:05 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ static int	count_list(t_stack **head)
 	return (i);
 }
 
-static void	help_sort_radix(t_stack **head_a, t_stack *head_b, int i)
+static void	help_sort_radix(t_stack **head_a, t_stack *head_b,
+		int i, t_bench *bench)
 {
 	int	j;
 	int	nodes_left;
@@ -80,16 +81,16 @@ static void	help_sort_radix(t_stack **head_a, t_stack *head_b, int i)
 	while (j < nodes_left)
 	{
 		if (((*head_a)->rank >> i & 1) == 0)
-			pb(head_a, &head_b);
+			pb(head_a, &head_b, bench);
 		else
-			ra(head_a);
+			ra(head_a, bench);
 		j++;
 	}
 	while (head_b)
-		pa(head_a, &head_b);
+		pa(head_a, &head_b, bench);
 }
 
-int	binary_radix_sort(t_stack **head_a)
+int	binary_radix_sort(t_stack **head_a, t_bench *bench)
 {
 	t_stack	*head_b;
 	int		i;
@@ -113,7 +114,7 @@ int	binary_radix_sort(t_stack **head_a)
 		if (check == 1)
 			continue ;
 		if (check == 0)
-			help_sort_radix(head_a, head_b, i);
+			help_sort_radix(head_a, head_b, i, bench);
 	}
 	return (0);
 }

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   disorder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luis <luis@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 16:50:23 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/11/06 15:33:22 by luis             ###   ########.fr       */
+/*   Updated: 2026/11/03 20:12:03 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap_functions/pushswap.h"
 
-float	check_pairs_disorder(t_stack **head)
+static float	check_pairs_disorder(t_stack **head)
 {
 	t_stack	*current;
 	t_stack	*compare;
@@ -39,4 +39,15 @@ float	check_pairs_disorder(t_stack **head)
 		current = current->next;
 	}
 	return (((float)count_mis / total_count));
+}
+
+int	set_disorder_value(t_stack **head, t_bench *bench)
+{
+	float	value;
+
+	value = check_pairs_disorder(head);
+	if (value == -1)
+		return (-1);
+	bench->ini_disorder = value;
+	return (0);
 }

@@ -20,7 +20,7 @@ void	shiftdown(t_stack **pointer)
 {
 	t_stack	*last_node;
 	t_stack	*penultimate_node;
-	
+
 	if (!pointer || !*pointer || !(*pointer)->next)
 		return ;
 	last_node = ft_lstlast1(*pointer);
@@ -29,6 +29,7 @@ void	shiftdown(t_stack **pointer)
 	*pointer = last_node;
 	penultimate_node->next = NULL;
 }
+
 // A tester dans le cas d'une liste a 1 elem.
 static t_stack	*ft_lst_penultimate(t_stack *lst)
 {
@@ -42,21 +43,24 @@ static t_stack	*ft_lst_penultimate(t_stack *lst)
 	return (temp);
 }
 
-void	rra(t_stack **pointer)
+void	rra(t_stack **pointer, t_bench *bench)
 {
 	shiftdown(pointer);
+	bench->count_rra += 1;
 	ft_printf("rra\n");
 }
 
-void	rrb(t_stack **pointer)
+void	rrb(t_stack **pointer, t_bench *bench)
 {
 	shiftdown(pointer);
+	bench->count_rrb += 1;
 	ft_printf("rrb\n");
 }
 
-void	rrr(t_stack **pointer1, t_stack **pointer2)
+void	rrr(t_stack **pointer1, t_stack **pointer2, t_bench *bench)
 {
 	shiftdown(pointer1);
 	shiftdown(pointer2);
+	bench->count_rrr += 1;
 	ft_printf("rrr\n");
 }
