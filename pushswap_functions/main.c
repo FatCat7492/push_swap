@@ -3,72 +3,92 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luis <luis@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 16:37:28 by luis              #+#    #+#             */
-/*   Updated: 2026/11/09 08:09:50 by luis             ###   ########.fr       */
+/*   Updated: 2026/11/09 19:45:40 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft/libft.h"
 #include "pushswap.h"
 
-int main(int argc, char *argv[])
+static int	freeme(t_bench *bench, t_stack **head)
 {
-	// commnand lines arguments
-
-	// Parsing and creation of stack
-
-	// Preprocessing: calculate ranks and disorder
-
-	// Strategy selection : adaptive vs forced
-
-	// Execution of algorithm
+	free(bench);
+	ft_cleanstack(head);
+	return (1);
 }
 
-// int main(int argc, char *argv[])
-// {
-// 	int		i;
-// 	int		*array;
-// 	char	**numbers;
-	
-//     t_stack	*a;
-// 	t_stack	*b;
+static int	strat_part1(int check_algo, t_bench *bench, t_stack **stack_a)
+{
+	if (check_algo == 1)
+	{
+		bench->strat = 1;
+		bench->selected_strat = 1;
+		if (selection_sort(stack_a, bench) == -1)
+			return (freeme(bench, stack_a));
+	}
+	if (check_algo == 2)
+	{
+		bench->strat = 2;
+		bench->selected_strat = 2;
+		if (chunk_based(stack_a, bench) == -1)
+			return (freeme(bench, stack_a));
+	}
+	return (0);
+}
 
-// 	a = NULL;
-// 	b = NULL;
-// 	if (argc < 2 || !argv[1][0])
-// 		return (1);
-	
-// 	write(2, "ERROR", 5);
-// 	array = malloc ((argc - 1) * sizeof(int));
-// 	if (!array)
-// 		return (1);
-// 	if (argc == 2)
-// 	{
-// 		numbers = ft_split(argv[1], ' ');
-// 		i = 0;
-// 		while (numbers[i])
-// 		{
-// 			array[i] = ft_atoi(numbers[i]);
-// 			i++;
-// 		}
-// 	}
-// 	if (argc > 2)
-// 	{
-// 		i = 1;
-// 		while (i < argc)
-// 		{
-// 			array[i - 1] = argv[i];
-// 			i++;
-// 		}
-// 	}
-// 	int	j = 0;
-// 	while (j < i)
-// 	{
-// 		ft_lstnew((void *)array[j]);
-// 		ft_lstadd_back(&a, a);
-// 		j++;
-// 	}
-// }
+static int	strat_part2(int check_algo, t_bench *bench, t_stack **stack_a)
+{
+	if (check_algo == 3)
+	{
+		bench->strat = 3;
+		bench->selected_strat = 3;
+		if (binary_radix_sort(stack_a, bench) == -1)
+			return (freeme(bench, stack_a));
+	}
+	if (check_algo == 4)
+	{
+		bench->strat = 4;
+		bench->selected_strat = 4;
+		if (adaptive(bench, stack_a) == -1)
+			return (freeme(bench, stack_a));
+	}
+	return (0);
+}
 
+static int	choosing_strat(int check_algo, int check_bench, t_bench *bench,
+		t_stack **stack_a)
+{
+	if (set_disorder_value(stack_a, bench) == -1)
+		return (freeme(bench, stack_a));
+	if (strat_part1(check_algo, bench, stack_a) == 1)
+		return (1);
+	if (strat_part2(check_algo, bench, stack_a) == 1)
+		return (1);
+	if (check_bench == 1)
+		bench_print_op(bench);
+	return (0);
+}
+
+int	main(int argc, char **argv)
+{
+	t_stack	*stack_a;
+	t_bench	*bench;
+	int		check_bench;
+	int		check_algo;
+
+	check_bench = 0;
+	stack_a = NULL;
+	bench = malloc(sizeof(t_bench));
+	if (!bench)
+		return (1);
+	benchmark_initaliser(bench);
+	check_algo = ft_parsing_ultimate(argc, &check_bench, argv, &stack_a);
+	if (check_algo == -1)
+		return (freeme(bench, NULL));
+	if (choosing_strat(check_algo, check_bench, bench, &stack_a) == 1)
+		return (1);
+	freeme(bench, &stack_a);
+	return (0);
+}
