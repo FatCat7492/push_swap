@@ -6,14 +6,13 @@
 /*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 12:35:58 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/11/03 19:07:28 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/11/09 20:30:18 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
 t_stack	*ft_lstlast1(t_stack *lst);
-
 
 void	shiftup(t_stack **pointer)
 {

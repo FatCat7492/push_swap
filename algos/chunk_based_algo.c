@@ -1,6 +1,6 @@
-#include "../ft_printf/libft/libft.h"
-#include "../pushswap_functions/pushswap.h"
 
+
+#include "../pushswap_functions/pushswap.h"
 
 static int	get_max_pos(t_stack *stack_b)
 {
@@ -23,7 +23,8 @@ static int	get_max_pos(t_stack *stack_b)
 	}
 	return (max_pos);
 }
-static void	push_max(t_stack **stack_a, t_stack **stack_b)
+
+static void	push_max(t_stack **stack_a, t_stack **stack_b, t_bench *bench)
 {
 	int	max_pos;
 	int	size;
@@ -33,29 +34,29 @@ static void	push_max(t_stack **stack_a, t_stack **stack_b)
 	if (max_pos <= size / 2)
 	{
 		while (max_pos-- > 0)
-			rb(stack_b);
+			rb(stack_b, bench);
 	}
 	else
 	{
 		while (max_pos++ < size)
-			rrb(stack_b);
+			rrb(stack_b, bench);
 	}
-	pa(stack_a, stack_b);
+	pa(stack_a, stack_b, bench);
 }
 
-int	chunking(t_stack **stack_a, int list_size)
+int	chunking(t_stack **stack_a, int list_size, t_bench *bench)
 {
 	t_stack	*stack_b;
 
 	stack_b = NULL;
-	push_chunks(stack_a, &stack_b, list_size);
+	push_chunks(stack_a, &stack_b, list_size, bench);
 	while (stack_b)
-		push_max(stack_a, &stack_b);
+		push_max(stack_a, &stack_b, bench);
 	return (0);
 }
 
 static void	push_chunks(t_stack **stack_a, t_stack **stack_b,
-		int list_size)
+		int list_size, t_bench *bench)
 {
 	int	chunk_size;
 	int	pushed;
@@ -68,22 +69,22 @@ static void	push_chunks(t_stack **stack_a, t_stack **stack_b,
 	{
 		if ((*stack_a)->rank <= pushed)
 		{
-			pb(stack_a, stack_b);
-			rb(stack_a, stack_b);
+			pb(stack_a, stack_b, bench);
+			rb(stack_a, bench);
 			pushed++;
 		}
 		else if ((*stack_a)->rank < pushed + chunk_size)
 		{
-			pb(stack_a, stack_b);
+			pb(stack_a, stack_b, bench);
 			pushed++;
 		}
 		else
-			ra(stack_a, stack_b);
+			ra(stack_a, bench);
 	}
 }
 
 
-int	chunk_based(t_stack **stack_a)
+int	chunk_based(t_stack **stack_a, t_bench *bench)
 {
 	int		list_size;
 	int		*array;
@@ -101,7 +102,7 @@ int	chunk_based(t_stack **stack_a)
 		return (1);
 	}
 	free(array);
-	return (chunking(stack_a, list_size));
+	return (chunking(stack_a, list_size, bench));
 }
 
 

@@ -1,4 +1,4 @@
-#include "../ft_printf/libft/libft.h"
+
 #include "../pushswap_functions/pushswap.h"
 
 //Finds the smallest element in A
@@ -16,8 +16,8 @@ size_t	size_list(t_stack *lst);
 static int	find_min_position(t_stack *stack_a)
 {
 	int	index;
-	int position;
-	int value;
+	int	position;
+	int	value;
 
 	index = 0;
 	position = 0;
@@ -30,11 +30,13 @@ static int	find_min_position(t_stack *stack_a)
 			position = index + 1;
 		}
 		stack_a = stack_a->next;
-		index++; 
+		index++;
 	}
 	return (position);
 }
-void	push_minima_to_b(t_stack **stack_a, t_stack **stack_b, size_t stack_size)
+
+void	push_minima_to_b(t_stack **stack_a, t_stack **stack_b,
+			size_t stack_size, t_bench *bench)
 {
 	int	position;
 
@@ -46,32 +48,33 @@ void	push_minima_to_b(t_stack **stack_a, t_stack **stack_b, size_t stack_size)
 			while (position != 0)
 			{
 				position--;
-				ra(stack_a);
+				ra(stack_a, bench);
 			}
 		}
 		else
 		{
 			while (position < stack_size)
 			{
-				rra(stack_a);
+				rra(stack_a, bench);
 				position++;
 			}
 		}
-		pb(stack_a, stack_b);
+		pb(stack_a, stack_b, bench);
 		stack_size--;
 	}
 }
 
-void	selection_sort(t_stack **stack_a)
+int	selection_sort(t_stack **stack_a, t_bench *bench)
 {
 	size_t	stack_size;
-	t_stack *stack_b;
+	t_stack	*stack_b;
 
 	stack_b = NULL;
 	stack_size = size_list(*stack_a);
-	push_minima_to_b(stack_a, &stack_b, stack_size);
+	push_minima_to_b(stack_a, &stack_b, stack_size, bench);
 	while (stack_b)
-		pa(stack_a, &stack_b);
+		pa(stack_a, &stack_b, bench);
+	return (0);
 }
 
 size_t	size_list(t_stack *lst)
