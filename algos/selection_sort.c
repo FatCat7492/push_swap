@@ -13,11 +13,11 @@
 size_t	size_list(t_stack *lst);
 
 
-static int	find_min_position(t_stack *stack_a)
+static size_t	find_min_position(t_stack *stack_a)
 {
-	int	index;
-	int	position;
-	int	value;
+	size_t	index;
+	size_t	position;
+	int		value;
 
 	index = 0;
 	position = 0;
@@ -38,7 +38,7 @@ static int	find_min_position(t_stack *stack_a)
 void	push_minima_to_b(t_stack **stack_a, t_stack **stack_b,
 			size_t stack_size, t_bench *bench)
 {
-	int	position;
+	size_t	position;
 
 	while (*stack_a)
 	{

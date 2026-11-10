@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: luis <luis@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 11:39:52 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/11/09 18:44:54 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/11/10 15:55:25 by luis             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 typedef struct stack
 {
 	int				value;
-	int				rank;
+size_t				rank;
 	struct stack	*next;
 }	t_stack;
 /* Struct Bench */
@@ -42,6 +42,16 @@ typedef struct bench
 	int		selected_strat;
 	float	ini_disorder;
 }	t_bench;
+
+//Helpers
+unsigned int	lstsize(t_stack *lst);
+int				*fill_array(t_stack *stack_a, int list_size);
+void			sort_array(int *array, int listsize);
+int				fill_rank(t_stack *stack_a, int *array, int list_size);
+
+
+
+
 /* Parsing */
 int			ft_md_atoi(const char *str, int *check);
 int			ft_parsing(char *argument, t_stack **head);
@@ -65,6 +75,8 @@ void		bench_print_integer(int value, const char *label);
 int			benchmark_total_count(t_bench *bench);
 void		benchmark_initaliser(t_bench *bench);
 int			set_disorder_value(t_stack **head, t_bench *bench);
+void		bench_print_op(t_bench *bench);
+
 /* Operations */
 void		sa(t_stack **pointer, t_bench *bench);
 void		sb(t_stack **pointer, t_bench *bench);
