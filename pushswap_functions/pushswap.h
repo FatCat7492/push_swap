@@ -3,20 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luis <luis@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 11:39:52 by crgrandj          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/11/05 15:19:45 by luis             ###   ########.fr       */
-=======
-/*   Updated: 2026/11/06 15:54:24 by crgrandj         ###   ########.fr       */
->>>>>>> 291dc405c78083221b494efc5fe49d14864949e5
+/*   Updated: 2026/11/09 18:44:54 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
 
+# include "../ft_printf/libft/libft.h"
 # include "../ft_printf/ft_printf.h"
 # include <stdio.h>
 /* Struct general */
@@ -60,30 +57,9 @@ int			ft_parsing_ultimate(int argc, int *check_bench, char **argv,
 int			binary_radix_sort(t_stack **head_a, t_bench *bench);
 int			check_sort(t_stack **head);
 t_stack		*ft_lstlast1(t_stack *lst);
-<<<<<<< HEAD
-
-void	selection_sort(t_stack **stack_a);
-int	chunk_based(t_stack **stack_a);
-void	adaptive(float disorder, t_stack **stack_a);
-
-
-
-// operations
-void		sa(t_stack **pointer);
-void		sb(t_stack **pointer);
-void		ss(t_stack **pointer1, t_stack **pointer2);
-void		pa(t_stack **pointer1, t_stack **pointer2);
-void		pb(t_stack **pointer1, t_stack **pointer2);
-void		ra(t_stack **pointer);
-void		rb(t_stack **pointer);
-void		rr(t_stack **pointer1, t_stack **pointer2);
-void		rra(t_stack **pointer);
-void		rrb(t_stack **pointer);
-void		rrr(t_stack **pointer1, t_stack **pointer2);
-=======
-void		selection_sort(t_stack **stack_a, t_stack **stack_b);
-int			chunk_based(t_stack **stack_a);
-void		adaptive(float disorder, t_stack **stack_a);
+int			selection_sort(t_stack **stack_a, t_bench *bench);
+int			chunk_based(t_stack **stack_a, t_bench *bench);
+int			adaptive(t_bench *bench, t_stack **stack_a);
 /* Benchmark */
 void		bench_print_integer(int value, const char *label);
 int			benchmark_total_count(t_bench *bench);
@@ -101,6 +77,5 @@ void		rr(t_stack **pointer1, t_stack **pointer2, t_bench *bench);
 void		rra(t_stack **pointer, t_bench *bench);
 void		rrb(t_stack **pointer, t_bench *bench);
 void		rrr(t_stack **pointer1, t_stack **pointer2, t_bench *bench);
->>>>>>> 291dc405c78083221b494efc5fe49d14864949e5
 
 #endif

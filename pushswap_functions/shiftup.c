@@ -6,7 +6,7 @@
 /*   By: luis <luis@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 12:35:58 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/11/09 15:21:34 by luis             ###   ########.fr       */
+/*   Updated: 2026/11/10 10:27:35 by luis             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,6 @@
 t_stack	*ft_lstlast1(t_stack *lst)
 {
 	t_stack	*temp;
-
-	if (!lst)
-		return (NULL);
-	temp = lst;
-	while (temp->next)
-		temp = temp->next;
-	return (temp);
-}
 
 void	shiftup(t_stack **pointer)
 {
