@@ -3,17 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   shiftup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: luis <luis@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 12:35:58 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/11/03 19:07:28 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/11/09 15:21:34 by luis             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-t_stack	*ft_lstlast1(t_stack *lst);
+t_stack	*ft_lstlast1(t_stack *lst)
+{
+	t_stack	*temp;
 
+	if (!lst)
+		return (NULL);
+	temp = lst;
+	while (temp->next)
+		temp = temp->next;
+	return (temp);
+}
 
 void	shiftup(t_stack **pointer)
 {
@@ -87,14 +96,3 @@ void	rr(t_stack **pointer1, t_stack **pointer2, t_bench *bench)
 // 	printf("Node3 next: %p\n\n", node3.next);
 // }
 
-t_stack	*ft_lstlast1(t_stack *lst)
-{
-	t_stack	*temp;
-
-	if (!lst)
-		return (NULL);
-	temp = lst;
-	while (temp->next)
-		temp = temp->next;
-	return (temp);
-}

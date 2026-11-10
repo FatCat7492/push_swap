@@ -1,8 +1,6 @@
 #include "../ft_printf/libft/libft.h"
 #include "../pushswap_functions/pushswap.h"
 
-unsigned int	lstsize(t_stack *lst);
-
 unsigned int	lstsize(t_stack *lst)
 {
 	size_t	count;
