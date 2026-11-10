@@ -44,17 +44,6 @@ static void	push_max(t_stack **stack_a, t_stack **stack_b, t_bench *bench)
 	pa(stack_a, stack_b, bench);
 }
 
-int	chunking(t_stack **stack_a, int list_size, t_bench *bench)
-{
-	t_stack	*stack_b;
-
-	stack_b = NULL;
-	push_chunks(stack_a, &stack_b, list_size, bench);
-	while (stack_b)
-		push_max(stack_a, &stack_b, bench);
-	return (0);
-}
-
 static void	push_chunks(t_stack **stack_a, t_stack **stack_b,
 		int list_size, t_bench *bench)
 {
@@ -83,6 +72,16 @@ static void	push_chunks(t_stack **stack_a, t_stack **stack_b,
 	}
 }
 
+int	chunking(t_stack **stack_a, int list_size, t_bench *bench)
+{
+	t_stack	*stack_b;
+
+	stack_b = NULL;
+	push_chunks(stack_a, &stack_b, list_size, bench);
+	while (stack_b)
+		push_max(stack_a, &stack_b, bench);
+	return (0);
+}
 
 int	chunk_based(t_stack **stack_a, t_bench *bench)
 {

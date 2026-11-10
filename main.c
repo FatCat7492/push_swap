@@ -6,18 +6,11 @@
 /*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 16:37:28 by luis              #+#    #+#             */
-/*   Updated: 2026/11/09 19:45:40 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/11/10 12:09:26 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
-
-static int	freeme(t_bench *bench, t_stack **head)
-{
-	free(bench);
-	ft_cleanstack(head);
-	return (1);
-}
 
 static int	strat_part1(int check_algo, t_bench *bench, t_stack **stack_a)
 {
@@ -26,14 +19,14 @@ static int	strat_part1(int check_algo, t_bench *bench, t_stack **stack_a)
 		bench->strat = 1;
 		bench->selected_strat = 1;
 		if (selection_sort(stack_a, bench) == -1)
-			return (freeme(bench, stack_a));
+			return (1);
 	}
 	if (check_algo == 2)
 	{
 		bench->strat = 2;
 		bench->selected_strat = 2;
-		if (chunk_based(stack_a, bench) == -1)
-			return (freeme(bench, stack_a));
+		if (chunk_based(stack_a, bench) == 1)
+			return (1);
 	}
 	return (0);
 }
@@ -45,14 +38,14 @@ static int	strat_part2(int check_algo, t_bench *bench, t_stack **stack_a)
 		bench->strat = 3;
 		bench->selected_strat = 3;
 		if (binary_radix_sort(stack_a, bench) == -1)
-			return (freeme(bench, stack_a));
+			return (1);
 	}
 	if (check_algo == 4)
 	{
 		bench->strat = 4;
 		bench->selected_strat = 4;
 		if (adaptive(bench, stack_a) == -1)
-			return (freeme(bench, stack_a));
+			return (1);
 	}
 	return (0);
 }
@@ -61,7 +54,7 @@ static int	choosing_strat(int check_algo, int check_bench, t_bench *bench,
 		t_stack **stack_a)
 {
 	if (set_disorder_value(stack_a, bench) == -1)
-		return (freeme(bench, stack_a));
+		return (1);
 	if (strat_part1(check_algo, bench, stack_a) == 1)
 		return (1);
 	if (strat_part2(check_algo, bench, stack_a) == 1)
@@ -80,15 +73,17 @@ int	main(int argc, char **argv)
 
 	check_bench = 0;
 	stack_a = NULL;
+	if (argc == 1)
+		return (0);
 	bench = malloc(sizeof(t_bench));
 	if (!bench)
 		return (1);
 	benchmark_initaliser(bench);
 	check_algo = ft_parsing_ultimate(argc, &check_bench, argv, &stack_a);
 	if (check_algo == -1)
-		return (freeme(bench, NULL));
+		return (error_handling(bench, NULL));
 	if (choosing_strat(check_algo, check_bench, bench, &stack_a) == 1)
-		return (1);
+		return (error_handling(bench, &stack_a));
 	freeme(bench, &stack_a);
 	return (0);
 }
