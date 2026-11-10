@@ -6,7 +6,7 @@
 /*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 16:37:28 by luis              #+#    #+#             */
-/*   Updated: 2026/11/10 12:09:26 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/11/10 13:19:18 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	if (argc == 1)
 		return (0);
+	if (argc == 2 && ft_strncmp(argv[1], "--bench", 8) == 0)
+		return (error_handling(NULL, NULL));
 	bench = malloc(sizeof(t_bench));
 	if (!bench)
 		return (1);
