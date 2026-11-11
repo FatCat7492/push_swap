@@ -6,7 +6,7 @@
 /*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 16:50:23 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/11/03 20:12:03 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/11/10 17:25:27 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	set_disorder_value(t_stack **head, t_bench *bench)
 
 	value = check_pairs_disorder(head);
 	if (value == -1)
-		return (-1);
+		return (1);
 	bench->ini_disorder = value;
 	return (0);
 }

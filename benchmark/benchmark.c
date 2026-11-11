@@ -6,7 +6,7 @@
 /*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 15:26:32 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/11/06 15:50:56 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/11/10 16:26:43 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	print_disorder_ini(t_bench *bench)
 	value *= 10000;
 	complete = value;
 	towrite = complete / 100;
-	bench_print_integer(towrite, "[bench] disorder:  ");
+	bench_print_integer(towrite, "[bench]   disorder:  ");
 	write(2, ".", 1);
 	towrite = complete % 100;
 	if (towrite < 10)
@@ -59,7 +59,7 @@ static void	bench_print_strategy(t_bench *bench)
 static void	bench_print_op2(t_bench *bench)
 {
 	benchmark_total_count(bench);
-	bench_print_integer(bench->total_count, "total_ops:  ");
+	bench_print_integer(bench->total_count, " total_ops:  ");
 	write(2, "\n", 1);
 	write(2, "[bench] ", 8);
 	bench_print_integer(bench->count_sa, "sa:  ");
@@ -83,7 +83,7 @@ void	bench_print_op(t_bench *bench)
 	print_disorder_ini(bench);
 	write(2, "\n", 1);
 	write(2, "[bench] ", 8);
-	write(2, "strategy:  ", 11);
+	write(2, "  strategy:  ", 13);
 	bench_print_strategy(bench);
 	write(2, "\n", 1);
 	write(2, "[bench] ", 8);

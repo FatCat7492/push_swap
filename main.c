@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/21 16:37:28 by luis              #+#    #+#             */
-/*   Updated: 2026/11/10 13:19:18 by crgrandj         ###   ########.fr       */
+/*   Created: 2026/10/21 16:37:28 by crgrandj          #+#    #+#             */
+/*   Updated: 2026/11/10 17:25:07 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	strat_part1(int check_algo, t_bench *bench, t_stack **stack_a)
 	{
 		bench->strat = 1;
 		bench->selected_strat = 1;
-		if (selection_sort(stack_a, bench) == -1)
+		if (selection_sort(stack_a, bench) == 1)
 			return (1);
 	}
 	if (check_algo == 2)
@@ -37,14 +37,14 @@ static int	strat_part2(int check_algo, t_bench *bench, t_stack **stack_a)
 	{
 		bench->strat = 3;
 		bench->selected_strat = 3;
-		if (binary_radix_sort(stack_a, bench) == -1)
+		if (binary_radix_sort(stack_a, bench) == 1)
 			return (1);
 	}
 	if (check_algo == 4)
 	{
 		bench->strat = 4;
 		bench->selected_strat = 4;
-		if (adaptive(bench, stack_a) == -1)
+		if (adaptive(bench, stack_a) == 1)
 			return (1);
 	}
 	return (0);
@@ -53,7 +53,7 @@ static int	strat_part2(int check_algo, t_bench *bench, t_stack **stack_a)
 static int	choosing_strat(int check_algo, int check_bench, t_bench *bench,
 		t_stack **stack_a)
 {
-	if (set_disorder_value(stack_a, bench) == -1)
+	if (set_disorder_value(stack_a, bench) == 1)
 		return (1);
 	if (strat_part1(check_algo, bench, stack_a) == 1)
 		return (1);
