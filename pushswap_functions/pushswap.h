@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luis <luis@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 11:39:52 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/11/10 16:06:10 by luis             ###   ########.fr       */
+/*   Updated: 2026/11/10 16:17:45 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ void			sort_array(int *array, int listsize);
 int				fill_rank(t_stack *stack_a, int *array, int list_size);
 
 // Main helpers
-int	error_handling(t_bench *bench, t_stack **head);
-int	freeme(t_bench *bench, t_stack **head);
+int				error_handling(t_bench *bench, t_stack **head);
+int				freeme(t_bench *bench, t_stack **head);
 
 
 /* Parsing */

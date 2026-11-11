@@ -9,6 +9,7 @@ CPPFLAGS = -Ipushswap_functions
 RM = rm -f
 
 SRC = main.c \
+	main_helper.c \
 	algos/adaptive.c \
 	algos/chunk_based_algo.c \
 	algos/disorder.c \

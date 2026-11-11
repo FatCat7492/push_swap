@@ -6,7 +6,7 @@
 /*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 15:17:12 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/11/03 19:31:05 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/11/10 17:22:53 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,17 +100,17 @@ int	binary_radix_sort(t_stack **head_a, t_bench *bench)
 	i = -1;
 	head_b = NULL;
 	if (!head_a || !*head_a)
-		return (-1);
+		return (1);
 	max_rank = count_list(head_a) - 1;
 	if (rank_sort(head_a) == -1)
-		return (-1);
+		return (1);
 	if (check_sort(head_a) == 1)
 		return (0);
 	while (i < 31 && max_rank >> ++i)
 	{
 		check = radix_skip_check(head_a, i);
 		if (check == -1)
-			return (-1);
+			return (1);
 		if (check == 1)
 			continue ;
 		if (check == 0)
