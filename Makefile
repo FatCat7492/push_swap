@@ -1,5 +1,7 @@
 NAME = push_swap
 
+BONUS = checker
+
 CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
@@ -29,7 +31,14 @@ SRC = main.c \
 	benchmark/benchmark.c \
 	benchmark/benchmark_helpers.c
 
+bonusdir = ./bonus/
+
+BONUS_SRC = main_bonus.c \
+			helper.c
+
 OBJ = $(SRC:.c=.o)
+
+BONUS_OBJS := $($(addprefix bonusdir BONUS_SRC):%.c=%.o)
 
 PRINTF = ft_printf/libftprintf.a
 
@@ -54,6 +63,12 @@ fclean: clean
 
 re: fclean
 	$(MAKE) all
+
+bonus: $(BONUS)
+
+$(BONUS): $(BONUS_OBJS)
+	$(CC) CFLAGS $iflags -c $< -o $@
+
 
 FORCE:
 
