@@ -1,0 +1,9 @@
+#Compiled files
+*.o
+*.a
+
+#Executables
+push_swap
+
+#Generated test reports
+push_swap_test_report.json

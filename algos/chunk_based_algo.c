@@ -2,6 +2,16 @@
 
 #include "../pushswap_functions/pushswap.h"
 
+static int	square_root(int listsize)
+{
+	int	i;
+
+	i = 0;
+	while ((i * i) < listsize)
+		i++;
+	return (i);
+}
+
 static int	get_max_pos(t_stack *stack_b)
 {
 	size_t	max_rank;
@@ -50,7 +60,7 @@ static void	push_chunks(t_stack **stack_a, t_stack **stack_b,
 	int	chunk_size;
 	size_t	pushed;
 
-	chunk_size = list_size / 10;
+	chunk_size = list_size / square_root(list_size);
 	if (chunk_size < 1)
 		chunk_size = 1;
 	pushed = 0;
@@ -59,7 +69,7 @@ static void	push_chunks(t_stack **stack_a, t_stack **stack_b,
 		if ((*stack_a)->rank <= pushed)
 		{
 			pb(stack_a, stack_b, bench);
-			rb(stack_a, bench);
+			rb(stack_b, bench);
 			pushed++;
 		}
 		else if ((*stack_a)->rank < pushed + chunk_size)

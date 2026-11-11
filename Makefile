@@ -27,10 +27,7 @@ SRC = main.c \
 	pushswap_functions/shiftdown.c \
 	pushswap_functions/swaptop.c \
 	benchmark/benchmark.c \
-	benchmark/benchmark_helpers.c \
-	main_helper.c
-
-
+	benchmark/benchmark_helpers.c
 
 OBJ = $(SRC:.c=.o)
 
