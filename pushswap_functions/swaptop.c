@@ -6,13 +6,13 @@
 /*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 16:21:40 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/11/03 19:08:14 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/11/11 17:17:27 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-static void	swaptop(t_stack **pointer)
+void	swaptop(t_stack **pointer)
 {
 	t_stack	*temp;
 
