@@ -101,6 +101,11 @@ int	chunk_based(t_stack **stack_a, t_bench *bench)
 
 	if (!stack_a || !(*stack_a))
 		return (1);
+	if (lstsize(*stack_a) < 6)
+	{
+		small_sort(stack_a, bench);
+		return (0);
+	}
 	list_size = lstsize(*stack_a);
 	array = fill_array(*stack_a, list_size);
 	if (!array)

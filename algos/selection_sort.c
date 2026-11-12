@@ -69,6 +69,11 @@ int	selection_sort(t_stack **stack_a, t_bench *bench)
 	size_t	stack_size;
 	t_stack	*stack_b;
 
+	if (lstsize(*stack_a) < 6)
+	{
+		small_sort(stack_a, bench);
+		return (0);
+	}
 	stack_b = NULL;
 	stack_size = size_list(*stack_a);
 	push_minima_to_b(stack_a, &stack_b, stack_size, bench);

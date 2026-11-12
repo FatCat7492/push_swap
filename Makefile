@@ -1,13 +1,9 @@
 NAME = push_swap
-
 BONUS = checker
 
 CC = cc
-
 CFLAGS = -Wall -Wextra -Werror
-
 CPPFLAGS = -Ipushswap_functions
-
 RM = rm -f
 
 SRC = main.c \
@@ -19,6 +15,7 @@ SRC = main.c \
 	algos/binary_radix_sort.c \
 	algos/chunk_based_clean.c \
 	algos/helpers_algos.c \
+	algos/small_sort.c \
 	pushswap_functions/ft_checkstat.c \
 	pushswap_functions/ft_parsing.c \
 	pushswap_functions/helpers.c \
@@ -31,14 +28,23 @@ SRC = main.c \
 	benchmark/benchmark.c \
 	benchmark/benchmark_helpers.c
 
-bonusdir = ./bonus/
+BONUS_DIR = bonus/
 
 BONUS_SRC = main_bonus.c \
 			helper.c
 
+GNL_DIR = gnl/
+
+GNL_SRC = $(BONUS_DIR)$(GNL_DIR)get_next_line.c \
+		$(BONUS_DIR)$(GNL_DIR)get_next_line_utils.c
+
 OBJ = $(SRC:.c=.o)
 
-BONUS_OBJS := $($(addprefix bonusdir BONUS_SRC):%.c=%.o)
+BONUS_OBJS = $(addprefix $(BONUS_DIR),$(BONUS_SRC:.c=.o))
+
+GNL_OBJ = $(GNL_SRC:.c=.o)
+
+SHARED_OBJ = $(filter-out main.o,$(OBJ))
 
 PRINTF = ft_printf/libftprintf.a
 
@@ -53,24 +59,22 @@ $(NAME): $(OBJ) $(PRINTF)
 %.o: %.c
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
+bonus: $(BONUS)
+
+$(BONUS): $(BONUS_OBJS) $(GNL_OBJ) $(SHARED_OBJ) $(PRINTF)
+	$(CC) $(CFLAGS) $^ -o $@
+
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJ) $(BONUS_OBJS) $(GNL_OBJ)
 	$(MAKE) -C ft_printf clean
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(BONUS)
 	$(MAKE) -C ft_printf fclean
 
 re: fclean
 	$(MAKE) all
 
-bonus: $(BONUS)
-
-$(BONUS): $(BONUS_OBJS)
-	$(CC) CFLAGS $iflags -c $< -o $@
-
-
 FORCE:
 
-.PHONY: all clean fclean re FORCE
-
+.PHONY: all bonus clean fclean re FORCE bonus

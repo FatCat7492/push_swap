@@ -6,34 +6,11 @@
 /*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 15:17:12 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/11/10 17:22:53 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/11/12 04:00:48 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap_functions/pushswap.h"
-
-static int	rank_sort(t_stack **head)
-{
-	t_stack	*current;
-	t_stack	*compare;
-
-	if (!head || !*head)
-		return (-1);
-	current = *head;
-	while (current)
-	{
-		current->rank = 0;
-		compare = *head;
-		while (compare)
-		{
-			if (compare->value < current->value)
-				current->rank += 1;
-			compare = compare->next;
-		}
-		current = current->next;
-	}
-	return (0);
-}
 
 static int	radix_skip_check(t_stack **head, int i)
 {
@@ -90,22 +67,13 @@ static void	help_sort_radix(t_stack **head_a, t_stack *head_b,
 		pa(head_a, &head_b, bench);
 }
 
-int	binary_radix_sort(t_stack **head_a, t_bench *bench)
+static int	while_radix_imtired(t_stack **head_a, t_stack **head_b,
+	t_bench *bench, int max_rank)
 {
-	t_stack	*head_b;
 	int		i;
-	int		max_rank;
 	int		check;
 
 	i = -1;
-	head_b = NULL;
-	if (!head_a || !*head_a)
-		return (1);
-	max_rank = count_list(head_a) - 1;
-	if (rank_sort(head_a) == -1)
-		return (1);
-	if (check_sort(head_a) == 1)
-		return (0);
 	while (i < 31 && max_rank >> ++i)
 	{
 		check = radix_skip_check(head_a, i);
@@ -114,7 +82,28 @@ int	binary_radix_sort(t_stack **head_a, t_bench *bench)
 		if (check == 1)
 			continue ;
 		if (check == 0)
-			help_sort_radix(head_a, head_b, i, bench);
+			help_sort_radix(head_a, *head_b, i, bench);
 	}
 	return (0);
+}
+
+int	binary_radix_sort(t_stack **head_a, t_bench *bench)
+{
+	t_stack	*head_b;
+	int		max_rank;
+
+	head_b = NULL;
+	if (!head_a || !*head_a)
+		return (1);
+	if (lstsize(*head_a) < 6)
+	{
+		small_sort(head_a, bench);
+		return (0);
+	}
+	max_rank = count_list(head_a) - 1;
+	if (rank_sort(head_a) == -1)
+		return (1);
+	if (check_sort(head_a) == 1)
+		return (0);
+	return (while_radix_imtired(head_a, &head_b, bench, max_rank));
 }
