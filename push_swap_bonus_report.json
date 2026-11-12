@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-12T04:01:36+0100",
-  "push_swap": "/Users/grams/Desktop/c_application/c_coding/42/push_swap_github/push_swap",
-  "checker": "/Users/grams/Desktop/c_application/c_coding/42/push_swap_github/checker",
+  "generated_at": "2026-11-12T14:24:26+0100",
+  "push_swap": "/home/crgrandj/ecole42/gpproject/Repo_Github_PushSwap/push_swap",
+  "checker": "/home/crgrandj/ecole42/gpproject/Repo_Github_PushSwap/checker",
   "seed": 42,
   "mode": "all",
   "only": "all",
   "quick": false,
-  "elapsed_seconds": 12.93,
+  "elapsed_seconds": 2.16,
   "passed": 1553,
   "failed": 0,
   "tests": [

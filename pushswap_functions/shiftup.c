@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shiftup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luis <luis@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 12:35:58 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/11/10 15:54:07 by luis             ###   ########.fr       */
+/*   Updated: 2026/11/12 14:58:23 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,3 @@ void	rr(t_stack **pointer1, t_stack **pointer2, t_bench *bench)
 // 	printf("Node2 next: %p\n", node2.next);
 // 	printf("Node3 next: %p\n\n", node3.next);
 // }
-

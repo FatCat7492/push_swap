@@ -6,7 +6,7 @@
 /*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/01 17:33:32 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/11/12 03:43:48 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/11/12 14:50:01 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,16 @@ int	rank_sort(t_stack **head)
 		}
 		current = current->next;
 	}
+	return (0);
+}
+
+int	chunking(t_stack **stack_a, int list_size, t_bench *bench)
+{
+	t_stack	*stack_b;
+
+	stack_b = NULL;
+	push_chunks(stack_a, &stack_b, list_size, bench);
+	while (stack_b)
+		push_max(stack_a, &stack_b, bench);
 	return (0);
 }

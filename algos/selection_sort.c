@@ -143,7 +143,5 @@ size_t	size_list(t_stack *lst)
 // 	printf("Node4 next: %p\n", node4->next);
 // 	printf("Node5 next: %p\n\n", node5->next);
 
-
 // 	return (0);
 // }
-

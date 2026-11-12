@@ -1,5 +1,4 @@
 
-
 #include "../pushswap_functions/pushswap.h"
 
 static int	square_root(int listsize)
@@ -15,8 +14,8 @@ static int	square_root(int listsize)
 static int	get_max_pos(t_stack *stack_b)
 {
 	size_t	max_rank;
-	int	max_pos;
-	int	pos;
+	int		max_pos;
+	int		pos;
 
 	max_rank = stack_b->rank;
 	max_pos = 0;
@@ -34,7 +33,7 @@ static int	get_max_pos(t_stack *stack_b)
 	return (max_pos);
 }
 
-static void	push_max(t_stack **stack_a, t_stack **stack_b, t_bench *bench)
+void	push_max(t_stack **stack_a, t_stack **stack_b, t_bench *bench)
 {
 	int	max_pos;
 	int	size;
@@ -54,10 +53,10 @@ static void	push_max(t_stack **stack_a, t_stack **stack_b, t_bench *bench)
 	pa(stack_a, stack_b, bench);
 }
 
-static void	push_chunks(t_stack **stack_a, t_stack **stack_b,
+void	push_chunks(t_stack **stack_a, t_stack **stack_b,
 		int list_size, t_bench *bench)
 {
-	int	chunk_size;
+	int		chunk_size;
 	size_t	pushed;
 
 	chunk_size = list_size / square_root(list_size);
@@ -81,18 +80,6 @@ static void	push_chunks(t_stack **stack_a, t_stack **stack_b,
 			ra(stack_a, bench);
 	}
 }
-
-int	chunking(t_stack **stack_a, int list_size, t_bench *bench)
-{
-	t_stack	*stack_b;
-
-	stack_b = NULL;
-	push_chunks(stack_a, &stack_b, list_size, bench);
-	while (stack_b)
-		push_max(stack_a, &stack_b, bench);
-	return (0);
-}
-
 
 int	chunk_based(t_stack **stack_a, t_bench *bench)
 {
@@ -119,5 +106,3 @@ int	chunk_based(t_stack **stack_a, t_bench *bench)
 	free(array);
 	return (chunking(stack_a, list_size, bench));
 }
-
-

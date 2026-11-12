@@ -6,7 +6,7 @@
 /*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 11:39:52 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/11/12 03:58:11 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/11/12 14:55:28 by crgrandj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "../ft_printf/ft_printf.h"
 # include "../bonus/gnl/get_next_line.h"
 # include <stdio.h>
+
 /* Struct general */
 typedef struct stack
 {
@@ -24,6 +25,7 @@ typedef struct stack
 	size_t			rank;
 	struct stack	*next;
 }	t_stack;
+
 /* Struct Bench */
 typedef struct bench
 {
@@ -49,11 +51,19 @@ unsigned int	lstsize(t_stack *lst);
 int				*fill_array(t_stack *stack_a, int list_size);
 void			sort_array(int *array, int listsize);
 int				fill_rank(t_stack *stack_a, int *array, int list_size);
+int				chunking(t_stack **stack_a, int list_size, t_bench *bench);
+int				look_for_smallest_rank(t_stack **stack_a);
+int				check_sort(t_stack **head);
+t_stack			*ft_lstlast1(t_stack *lst);
+int				small_sort(t_stack **stack_a, t_bench *bench);
+int				rank_sort(t_stack **head);
+void			push_max(t_stack **stack_a, t_stack **stack_b, t_bench *bench);
+void			push_chunks(t_stack **stack_a, t_stack **stack_b,
+					int list_size, t_bench *bench);
 
 // Main helpers
 int				error_handling(t_bench *bench, t_stack **head);
 int				freeme(t_bench *bench, t_stack **head);
-
 
 /* Parsing */
 int				ft_md_atoi(const char *str, int *check);
@@ -68,15 +78,10 @@ int				ft_parsing_ultimate(int argc, int *check_bench, char **argv,
 					t_stack **head);
 /* Algos */
 int				binary_radix_sort(t_stack **head_a, t_bench *bench);
-int				check_sort(t_stack **head);
-t_stack			*ft_lstlast1(t_stack *lst);
-unsigned int	lstsize(t_stack *lst);
 int				selection_sort(t_stack **stack_a, t_bench *bench);
 int				chunk_based(t_stack **stack_a, t_bench *bench);
 int				adaptive(t_bench *bench, t_stack **stack_a);
-int				rank_sort(t_stack **head);
-int				look_for_smallest_rank(t_stack **stack_a);
-int				small_sort(t_stack **stack_a, t_bench *bench);
+
 /* Benchmark */
 void			bench_print_integer(int value, const char *label);
 int				benchmark_total_count(t_bench *bench);
