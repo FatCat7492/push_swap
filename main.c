@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crgrandj <crgrandj@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: luis <luis@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 16:37:28 by crgrandj          #+#    #+#             */
-/*   Updated: 2026/11/12 03:40:23 by crgrandj         ###   ########.fr       */
+/*   Updated: 2026/11/16 18:21:14 by luis             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	main(int argc, char **argv)
 		return (1);
 	benchmark_initaliser(bench);
 	check_algo = ft_parsing_ultimate(argc, &check_bench, argv, &stack_a);
-	if (check_algo == -1)
+ 	if (check_algo == -1)
 		return (error_handling(bench, NULL));
 	if (choosing_strat(check_algo, check_bench, bench, &stack_a) == 1)
 		return (error_handling(bench, &stack_a));
